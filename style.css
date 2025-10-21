@@ -269,84 +269,68 @@ main {
     color: var(--white);
 }
 
-/* 工作经验 - 时间线 */
-.timeline {
-    position: relative;
-    padding: 2rem 0;
+/* 项目列表 */
+.projects-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--border);
+.project-item {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
 }
 
-.timeline-item {
-    position: relative;
-    padding-left: 100px;
-    padding-bottom: 2rem;
+.project-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateX(4px);
 }
 
-.timeline-marker {
-    position: absolute;
-    left: 16px;
-    top: 5px;
-    width: 28px;
-    height: 28px;
-    background: var(--primary);
-    border-radius: 50%;
-    border: 4px solid var(--white);
-    box-shadow: 0 0 0 2px var(--primary);
-}
-
-.timeline-content h3 {
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
-
-.timeline-date {
-    color: var(--secondary);
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
-}
-
-.timeline-description {
-    color: var(--text-light);
-    margin-bottom: 1rem;
-}
-
-.project-tags {
+.project-header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
 }
 
-.project-tags span {
+.project-header h3 {
+    color: var(--primary);
+    font-size: 1.15rem;
+    margin: 0;
+    flex: 1;
+}
+
+.project-time {
     background: #f0f4ff;
     color: var(--primary);
     padding: 0.4rem 0.8rem;
-    border-radius: 16px;
-    font-size: 0.8rem;
-    border: 1px solid #e0e8ff;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.project-desc {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
-    .timeline::before {
-        left: 15px;
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
 
-    .timeline-item {
-        padding-left: 60px;
-    }
-
-    .timeline-marker {
-        left: 4px;
+    .project-time {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -377,33 +361,54 @@ main {
 }
 
 .awards-list li {
-    padding: 0.8rem 0;
+    padding: 1rem;
     display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+    gap: 1.2rem;
+    align-items: center;
     color: var(--text-light);
     font-size: 0.95rem;
+    background: #fafbfc;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.awards-list li:hover {
+    background: #f0f4ff;
 }
 
 .badge {
-    display: inline-block;
-    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
     flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-weight: bold;
 }
 
 .badge.champion {
-    color: #fbbf24;
+    background: #fef08a;
+    color: #854d0e;
+    font-size: 1.2rem;
 }
 
 .badge.runner-up {
-    color: #c7d2fe;
+    background: #c7d2fe;
+    color: #3730a3;
+    font-size: 1.2rem;
 }
 
 .badge.third {
-    color: #fed7aa;
+    background: #fed7aa;
+    color: #92400e;
+    font-size: 1.2rem;
 }
 
 .badge.excellent {
+    background: #d1fae5;
+    color: #065f46;
     font-size: 1rem;
 }
 
